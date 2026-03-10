@@ -1,4 +1,5 @@
-📢 ¡Hola a tod@s!
+
+# CSS Tarea entregable 1 - Header Spa & Beauty
 
 Empezamos con las entregas de proyectos CSS. En esta ocasión, desarrollaremos un header-hero para una página web relacionada con un negocio de tipo SPA. A continuación, os dejo los requerimientos y el proceso de entrega.
 
