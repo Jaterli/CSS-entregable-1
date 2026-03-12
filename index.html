@@ -28,7 +28,7 @@
                     <a href="#">Services</a>
                     <a href="#">Facilities</a>
                     <div class="more-wrapper" id="moreWrapper">
-                        More <i class="fas fa-chevron-down"></i>
+                        <a href="#">More</a> <i class="fas fa-chevron-down"></i>
                         <div class="dropdown-menu">
                             <a href="#">Treatments</a>
                             <a href="#">Specialists</a>
@@ -70,7 +70,7 @@
                 <div class="hero-left">
                     <h1>Bring back the beauty and glow of your skin</h1>
                     <p class="description">
-                        We provide you various treatments from head to toe using the <br />best product, advanced technology, and affordable price
+                        We provide you various treatments from head to toe using the best product, advanced technology, and affordable price
                     </p>
                     <div class="hero-buttons">
                         <button class="btn-book">Book Now</button>
@@ -129,6 +129,43 @@
             const menuToggle = document.getElementById('menuToggle');
             const navMenu = document.getElementById('navMenu');
             const moreWrapper = document.getElementById('moreWrapper');
+            const nav = document.querySelector('nav');
+            const pageWrapper = document.querySelector('.page-wrapper');
+            
+            let navHeight = nav.offsetHeight;
+
+            // Función para actualizar la altura del nav
+            function updateNavHeight() {
+                navHeight = nav.offsetHeight;
+                if (nav.classList.contains('sticky')) {
+                    pageWrapper.style.paddingTop = navHeight + 'px';
+                } else {
+                    pageWrapper.style.paddingTop = '0';
+                }
+            }
+
+            // Función para manejar el scroll
+            function handleScroll() {
+                if (window.scrollY > 100) {
+                    if (!nav.classList.contains('sticky')) {
+                        nav.classList.add('sticky');
+                        pageWrapper.classList.add('has-sticky-nav');
+                        updateNavHeight();
+                    }
+                } else {
+                    if (nav.classList.contains('sticky')) {
+                        nav.classList.remove('sticky');
+                        pageWrapper.classList.remove('has-sticky-nav');
+                        pageWrapper.style.paddingTop = '0';
+                    }
+                }
+            }
+
+            // Escuchar el evento scroll
+            window.addEventListener('scroll', handleScroll);
+            
+            // Actualizar altura cuando la ventana se redimensiona
+            window.addEventListener('resize', updateNavHeight);
 
             // Toggle menú hamburguesa
             menuToggle.addEventListener('click', function() {
@@ -136,7 +173,7 @@
                 menuToggle.classList.toggle('open');
             });
 
-            // Cerrar menú al hacer clic en un enlace (opcional)
+            // Cerrar menú al hacer clic en un enlace
             const menuLinks = navMenu.querySelectorAll('a');
             menuLinks.forEach(link => {
                 link.addEventListener('click', function() {
@@ -158,7 +195,7 @@
                 }
             });
 
-            // Cerrar menú al hacer clic fuera (opcional, mejora UX)
+            // Cerrar menú al hacer clic fuera
             document.addEventListener('click', function(e) {
                 if (navMenu.classList.contains('open') && 
                     !navMenu.contains(e.target) && 
@@ -167,6 +204,9 @@
                     menuToggle.classList.remove('open');
                 }
             });
+
+            // Inicializar la altura
+            updateNavHeight();
         });
     </script>
 </body>

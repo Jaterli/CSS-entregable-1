@@ -10,7 +10,6 @@ a, button, i, .testimonial-card {
 }
 
 body {
-  background-color: #f9fbfd;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -27,6 +26,10 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
 }
 
+.page-wrapper.has-sticky-nav {
+  padding-top: 0;
+}
+
 .bg-beige {
   position: absolute;
   top: 0;
@@ -41,7 +44,7 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  width: 32%;
+  width: 635px;
   height: 100%;
   background-color: #A9D6CB;
   z-index: 1;
@@ -83,14 +86,12 @@ body {
 }
 
 nav {
-  display: flex;
+  display: grid;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 6rem;
-  margin-right: 3rem;
-  flex-wrap: wrap;
   z-index: 20;
   position: relative;
+  grid-template-columns: 25% auto 40%;
 }
 nav .mobile-sign-links {
   display: none;
@@ -123,7 +124,39 @@ nav .menu-toggle.open span:nth-child(2) {
 nav .menu-toggle.open span:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -6px);
 }
+nav.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem 10rem;
+  margin: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  animation: slideDown 0.3s ease-out;
+  z-index: 1000;
+}
+@media (max-width: 1400px) {
+  nav.sticky {
+    padding: 1rem 3rem;
+  }
+}
+@media (max-width: 992px) {
+  nav.sticky {
+    padding: 0.5rem 1.5rem;
+  }
+}
 
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 .logo {
   font-size: 36px;
   font-weight: 700;
@@ -137,8 +170,8 @@ nav .menu-toggle.open span:nth-child(3) {
 
 .nav-menu {
   display: flex;
-  gap: 4rem;
-  font-weight: 500;
+  justify-content: space-between;
+  font-weight: 400;
   color: #264065;
 }
 .nav-menu a {
@@ -199,6 +232,7 @@ nav .menu-toggle.open span:nth-child(3) {
   gap: 2rem;
   padding: 0.5rem 0;
   z-index: 30;
+  justify-content: right;
 }
 .nav-actions i {
   font-size: 20px;
@@ -220,6 +254,7 @@ nav .menu-toggle.open span:nth-child(3) {
   display: flex;
   gap: 1.5rem;
   align-items: center;
+  xmargin-right: 3rem;
 }
 .nav-actions .sign-links a:first-child {
   color: #264065;
@@ -495,7 +530,16 @@ nav .menu-toggle.open span:nth-child(3) {
   .main-content {
     padding: 1.5rem 3rem 3rem 3rem;
     background-size: 75%;
-    background-position: 95% bottom;
+    background-position: 125% 10%;
+  }
+  .logo {
+    font-size: 34px;
+  }
+  .nav-menu a {
+    font-size: 16px;
+  }
+  .sign-links a {
+    font-size: 16px !important;
   }
   .hero {
     gap: 2rem;
@@ -539,7 +583,7 @@ nav .menu-toggle.open span:nth-child(3) {
     background-image: none;
   }
   nav {
-    flex-direction: row;
+    grid-template-columns: auto auto;
     align-items: center;
     justify-content: space-between;
     gap: 0;
@@ -612,10 +656,12 @@ nav .menu-toggle.open span:nth-child(3) {
     font-size: 34px;
     line-height: 44px;
   }
-  .hero-buttons {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+  .hero-buttons .btn-book {
+    font-size: 16px;
+    padding: 0.9rem 6%;
+  }
+  .hero-buttons .btn-watch {
+    font-size: 16px;
   }
   .nav-actions {
     gap: 0.8rem;
@@ -627,6 +673,12 @@ nav .menu-toggle.open span:nth-child(3) {
     gap: 0.5rem;
     padding: 1rem 0;
   }
+  .feature-grid .feature-item {
+    gap: 0.5rem;
+  }
+  .feature-grid .feature-item .feature-text {
+    font-size: 12px;
+  }
   .icon-circle {
     width: 52px;
     height: 52px;
@@ -636,6 +688,9 @@ nav .menu-toggle.open span:nth-child(3) {
   }
   .logo {
     font-size: 32px;
+  }
+  .testimonial-card p, .testimonial-card .testimonial-author {
+    font-size: 16px;
   }
 }
 @media (min-width: 993px) and (max-width: 1400px) {
