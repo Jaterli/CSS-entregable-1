@@ -12,115 +12,126 @@
 <body>
     <div class="page-wrapper">
         <!-- CAPAS DE FONDO -->
-        <div class="bg-beige"></div>
-        <div class="bg-green"></div> 
-        <div class="bg-white-bottom"></div> 
+        <div class="bg-layers">
+            <div class="bg-beige"></div>
+            <div class="bg-green"></div> 
+        </div>
+        <div class="bg-woman"></div> 
 
-        <img src="assets/flor-spa.svg" alt="Flor decorativa" class="flower-svg-bg">
+        <header class="site-header" id="siteHeader">
+            <nav aria-label="Navegación principal">
+                <div class="logo" aria-label="GlowQueen logo">Glow<span>Queen</span></div>
 
-        <div class="main-content">
-            <nav>
-                <div class="logo">Glow<span>Queen</span></div>
-
-                <div class="nav-menu" id="navMenu">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Services</a>
-                    <a href="#">Facilities</a>
-                    <div class="more-wrapper" id="moreWrapper">
-                        <a href="#">More</a> <i class="fas fa-chevron-down"></i>
-                        <div class="dropdown-menu">
-                            <a href="#">Treatments</a>
-                            <a href="#">Specialists</a>
-                            <a href="#">Blog</a>
-                            <a href="#">Contact</a>
-                        </div>
-                    </div>
+                <!-- Menú de navegación -->
+                <ul class="nav-menu" id="navMenu" role="list">
+                    <li role="listitem"><a href="#">Home</a></li>
+                    <li role="listitem"><a href="#">About</a></li>
+                    <li role="listitem"><a href="#">Services</a></li>
+                    <li role="listitem"><a href="#">Facilities</a></li>
+                    <li role="listitem" class="more-wrapper" id="moreWrapper">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">More</a> <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        <ul class="dropdown-menu" role="menu" aria-label="Submenú">
+                            <li role="menuitem"><a href="#">Treatments</a></li>
+                            <li role="menuitem"><a href="#">Specialists</a></li>
+                            <li role="menuitem"><a href="#">Blog</a></li>
+                            <li role="menuitem"><a href="#">Contact</a></li>
+                        </ul>
+                    </li>
                     
                     <!-- Enlaces de Sign In/Up para móvil (se muestran solo en menú hamburguesa) -->
-                    <div class="mobile-sign-links">
+                    <li role="listitem" class="mobile-sign-links">
                         <a href="#">Sign In</a>
                         <a href="#">Sign Up</a>
-                    </div>
-                </div>
+                    </li>
+                </ul>
 
                 <div class="nav-actions">
-                    <i class="fas fa-search"></i>
-                    <i class="fas fa-briefcase bag-icon"></i>
-                    <span class="sign-divider"></span>
+                    <i class="fas fa-search" aria-label="Buscar"></i>
+                    <i class="fas fa-briefcase bag-icon" aria-label="Carrito"></i>
+                    <span class="sign-divider" aria-hidden="true"></span>
                     <div class="sign-links">
                         <a href="#">Sign In</a>
                         <a href="#">Sign Up</a>
                     </div>
 
-                <!-- Botón de menú hamburguesa -->
-                <button class="menu-toggle" id="menuToggle" aria-label="Menú">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-
+                    <!-- Botón de menú hamburguesa -->
+                    <button class="menu-toggle" id="menuToggle" aria-label="Menú" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>     
-                
-
-
             </nav>
-            <div class="hero">
+        </header>
+
+        <main class="main-content">
+            <!-- Sección Hero principal -->
+            <section class="hero" aria-labelledby="hero-heading">
                 <!-- Columna izquierda -->
                 <div class="hero-left">
-                    <h1>Bring back the beauty and glow of your skin</h1>
+                    <h1 id="hero-heading">Bring back the beauty and glow of your skin</h1>
                     <p class="description">
                         We provide you various treatments from head to toe using the best product, advanced technology, and affordable price
                     </p>
                     <div class="hero-buttons">
-                        <button class="btn-book">Book Now</button>
-                        <button class="btn-watch">
-                            <span class="play-icon"><i class="fas fa-play"></i></span> Watch Video
+                        <button class="btn-book" aria-label="Reservar cita">Book Now</button>
+                        <button class="btn-watch" aria-label="Ver video">
+                            <span class="play-icon" aria-hidden="true"><i class="fas fa-play"></i></span> Watch Video
                         </button>
                     </div>
 
-                    <div class="feature-grid">
-                        <div class="feature-item">
-                            <div class="icon-circle">
-                               <img src="assets/face-massage.svg" alt="icono masaje">
+                    <!-- Grid de características -->
+                    <div class="feature-grid" role="list" aria-label="Características del servicio">
+                        <div class="feature-item" role="listitem">
+                            <div class="icon-circle" aria-hidden="true">
+                               <img src="assets/face-massage.svg" alt="">
                             </div>
                             <span class="feature-number">15+</span>
-                            <span class="feature-text">Special Treatment</span>
+                            <span class="feature-text">Special <br />Treatment</span>
                         </div>
-                        <div class="feature-item">
-                            <div class="icon-circle">
-                               <img src="assets/lotus.svg" alt="icono loto">
+                        <div class="feature-item" role="listitem">
+                            <div class="icon-circle" aria-hidden="true">
+                               <img src="assets/lotus.svg" alt="">
                             </div>
                             <span class="feature-number">25+</span>
-                            <span class="feature-text">Professional Therapist</span>
+                            <span class="feature-text">Professional <br />Therapist</span>
                         </div>
-                        <div class="feature-item">
-                            <div class="icon-circle">
-                               <img src="assets/mortar.svg" alt="icono mortero">
+                        <div class="feature-item" role="listitem">
+                            <div class="icon-circle" aria-hidden="true">
+                               <img src="assets/mortar.svg" alt="">
                             </div>
                             <span class="feature-number">100%</span>
-                            <span class="feature-text">Herbal <br/>Cream Formula</span>
+                            <span class="feature-text">Herbal <br/>Cream <br />Formula</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Columna derecha: testimonios -->
-                <div class="hero-right">
-                    <div class="testimonial-card card1">
-                        <img src="assets/quote.svg" alt="Comillas">
+                <aside class="hero-right" aria-label="Testimonios de clientes">
+                    <article class="testimonial-card card1">
+                        <img src="assets/quote.svg" alt="" aria-hidden="true">
                         <p>I have a regular schedule to take treatment from GlowQueen, they gave me the best service and treatment ever to maintain the beauty and health of my skin</p>
-                        <h4 class="testimonial-author">Sophia Princeton</h4>
-                    </div>
+                        <footer class="testimonial-author">
+                            <cite>Sophia Princeton</cite>
+                        </footer>
+                    </article>
 
-                    <div class="testimonial-card card2">
-                        <img src="assets/quote.svg" alt="Comillas">
+                    <article class="testimonial-card card2">
+                        <img src="assets/quote.svg" alt="" aria-hidden="true">
                         <p>For the past few years, I've had a hard time finding the right place for skin care to deal with my complicated skin condition, thank God I found GlowQueen to treat my skin</p>
-                        <h4 class="testimonial-author">Tamara Jules</h4>
-                    </div>
-                </div>
-            </div>
+                        <footer class="testimonial-author">
+                            <cite>Tamara Jules</cite>
+                        </footer>
+                    </article>
+                </aside>
+            </section>
+        </main>
 
-        </div>
+        <!-- Pie de página con información adicional -->
+        <footer class="additional-content" aria-label="Información adicional">
+            <h2>Lorem Ipsum...</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </footer>
     </div>
 
     <!-- Script para el menú hamburguesa y dropdown -->
@@ -129,16 +140,16 @@
             const menuToggle = document.getElementById('menuToggle');
             const navMenu = document.getElementById('navMenu');
             const moreWrapper = document.getElementById('moreWrapper');
-            const nav = document.querySelector('nav');
+            const siteHeader = document.getElementById('siteHeader');
             const pageWrapper = document.querySelector('.page-wrapper');
             
-            let navHeight = nav.offsetHeight;
+            let headerHeight = siteHeader.offsetHeight;
 
-            // Función para actualizar la altura del nav
-            function updateNavHeight() {
-                navHeight = nav.offsetHeight;
-                if (nav.classList.contains('sticky')) {
-                    pageWrapper.style.paddingTop = navHeight + 'px';
+            // Función para actualizar la altura del header
+            function updateHeaderHeight() {
+                headerHeight = siteHeader.offsetHeight;
+                if (siteHeader.classList.contains('sticky')) {
+                    pageWrapper.style.paddingTop = headerHeight + 'px';
                 } else {
                     pageWrapper.style.paddingTop = '0';
                 }
@@ -147,14 +158,14 @@
             // Función para manejar el scroll
             function handleScroll() {
                 if (window.scrollY > 100) {
-                    if (!nav.classList.contains('sticky')) {
-                        nav.classList.add('sticky');
+                    if (!siteHeader.classList.contains('sticky')) {
+                        siteHeader.classList.add('sticky');
                         pageWrapper.classList.add('has-sticky-nav');
-                        updateNavHeight();
+                        updateHeaderHeight();
                     }
                 } else {
-                    if (nav.classList.contains('sticky')) {
-                        nav.classList.remove('sticky');
+                    if (siteHeader.classList.contains('sticky')) {
+                        siteHeader.classList.remove('sticky');
                         pageWrapper.classList.remove('has-sticky-nav');
                         pageWrapper.style.paddingTop = '0';
                     }
@@ -165,10 +176,12 @@
             window.addEventListener('scroll', handleScroll);
             
             // Actualizar altura cuando la ventana se redimensiona
-            window.addEventListener('resize', updateNavHeight);
+            window.addEventListener('resize', updateHeaderHeight);
 
             // Toggle menú hamburguesa
             menuToggle.addEventListener('click', function() {
+                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                menuToggle.setAttribute('aria-expanded', !isExpanded);
                 navMenu.classList.toggle('open');
                 menuToggle.classList.toggle('open');
             });
@@ -179,19 +192,28 @@
                 link.addEventListener('click', function() {
                     navMenu.classList.remove('open');
                     menuToggle.classList.remove('open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
                 });
             });
 
             // Toggle dropdown de "More"
+            const moreLink = moreWrapper.querySelector('a[aria-haspopup="true"]');
             moreWrapper.addEventListener('click', function(e) {
                 e.stopPropagation();
+                const isOpen = this.classList.contains('open');
                 this.classList.toggle('open');
+                if (moreLink) {
+                    moreLink.setAttribute('aria-expanded', !isOpen);
+                }
             });
 
             // Cerrar dropdown al hacer clic fuera
             document.addEventListener('click', function(e) {
                 if (!moreWrapper.contains(e.target)) {
                     moreWrapper.classList.remove('open');
+                    if (moreLink) {
+                        moreLink.setAttribute('aria-expanded', 'false');
+                    }
                 }
             });
 
@@ -202,11 +224,12 @@
                     !menuToggle.contains(e.target)) {
                     navMenu.classList.remove('open');
                     menuToggle.classList.remove('open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
                 }
             });
 
             // Inicializar la altura
-            updateNavHeight();
+            updateHeaderHeight();
         });
     </script>
 </body>

@@ -2,14 +2,63 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
+header.site-header {
+    margin: 1rem 8%;
+    padding: 0.5rem 0rem;
+    position: relative;    
+    z-index: 500;
+
+    &.sticky {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 0.5rem 8%;
+        margin: 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        animation: slideDown 0.3s ease-out;
+        z-index: 1000;
+        
+        // Ajustes responsive para el menú sticky
+        @include respond-to(xl) {
+            padding: 0.5rem 3rem;
+            .logo {
+                font-size: 28px;
+            }
+            .nav-menu a {
+                font-size: 16px;
+            }
+        }
+        
+        @include respond-to(lg) {
+            padding: 0.5rem 1.5rem;
+        }
+    }
+}
+
+// Animación para el menú sticky
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
 nav {
     display: grid;
     align-items: center;
-    margin-bottom: 6rem;
-    z-index: 20;
     position: relative; // Para posicionarlo en el móvil
     grid-template-columns: 25% auto 40%;
     
+    ul {
+        list-style: none;
+    }
+
     .mobile-sign-links{
         display: none;
     }
@@ -45,41 +94,6 @@ nav {
         &.open span:nth-child(3) {
             transform: rotate(-45deg) translate(7px, -6px);
         }
-    }
-
-    &.sticky {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        padding: 1rem 10rem;
-        margin: 0;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        animation: slideDown 0.3s ease-out;
-        z-index: 1000;
-        
-        // Ajustes responsive para el menú sticky
-        @include respond-to(xl) {
-            padding: 1rem 3rem;
-        }
-        
-        @include respond-to(lg) {
-            padding: 0.5rem 1.5rem;
-        }
-    }
-
-}
-
-// Animación para el menú sticky
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-    }
-    to {
-        transform: translateY(0);
     }
 }
 
@@ -168,7 +182,6 @@ nav {
     display: flex;
     align-items: center;
     gap: 2rem;
-    padding: 0.5rem 0;
     z-index: 30;
     justify-content: right;
     
@@ -196,7 +209,6 @@ nav {
         display: flex;
         gap: 1.5rem;
         align-items: center;
-        xmargin-right: 3rem;
         
         a:first-child {
             color: $primary-dark;
@@ -227,8 +239,8 @@ nav {
 }
 
 // Estilos Responsive para el menú hamburguesa
-@include respond-to(lg) {
-    nav {
+@include respond-to(xl) {
+    nav {       
         .menu-toggle {
             display: flex; // Mostrar hamburguesa
         }
@@ -237,8 +249,8 @@ nav {
     .nav-menu {
         // Ocultar menú y acciones por defecto en móvil
         position: fixed;
-        top: 0;
-        right: -100%; // Oculto fuera de la pantalla
+        top: 64px;
+        display: none; 
         width: 70%;
         max-width: 300px;
         height: 100vh;
@@ -247,14 +259,14 @@ nav {
         justify-content: flex-start;
         align-items: flex-start;
         padding: 2rem 1.5rem 2rem;
-        margin-top: 5rem;
         gap: 1.5rem;
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
         transition: right 0.3s ease;
         z-index: 100;
 
-        &.open {
-            right: 0; // Mostrar menú
+        &.open { // Mostrar menú
+            right: 0;
+            display: flex;
         }
 
         a {

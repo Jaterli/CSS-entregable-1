@@ -9,31 +9,49 @@
     }
     .page-wrapper {
         width: 100%;
-        height: 100vh;
-        overflow-y: auto;
+        height: auto;
+        min-height: 100vh;
     }
 }
 
 // Breakpoint 1400px
 @include respond-to(xl) {
-    .page-wrapper {
-        width: 100%;
-        height: auto;
-        min-height: 100vh;
-        overflow: visible;
-    }
     
     .main-content {
         padding: 1.5rem 3rem 3rem 3rem;
-        background-size: 75%;
-        background-position: 125% 10%;        
     }
+
+    nav {
+        grid-template-columns: auto auto;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+    }
+
     .logo {
         font-size: 34px;
     }
+
+    .bg-layers {
+        grid-template-columns: auto 30%;
+    }
+    
+    header.site-header {
+        margin-right: 3rem;
+        margin-left: 3rem;
+    }
+
     .nav-menu a {
         font-size: 16px;
     }
+    .nav-menu {
+        gap: 1.8rem;
+    }
+    
+    .nav-actions {
+        gap: 1rem;
+    }
+
     .sign-links a {
         font-size: 16px !important;
     }
@@ -52,15 +70,7 @@
             }
         }
     }
-    
-    .nav-menu {
-        gap: 1.8rem;
-    }
-    
-    .nav-actions {
-        gap: 1rem;
-    }
-    
+   
     .card1 {
         transform: translateX(0) translateY(120px);
         margin-right: 0;
@@ -70,36 +80,31 @@
         transform: translateX(0) translateY(150px);
         margin-right: 0;
     }
+
+    .testimonial-card {
+        max-width: 320px;
+        p, .testimonial-author {
+            font-size: 16px;
+        }
+    }    
+
+
 }
 
 // Breakpoint 992px
 @include respond-to(lg) {
-    .bg-beige, .bg-green, .bg-white-bottom, .flower-svg-bg {
+    .bg-layers {
         display: none;
     }
-    
-    .page-wrapper {
-        background-color: $background-beige;
-        width: 100%;
-        height: auto;
-        min-height: 100vh;
-        overflow: visible;
-    }
-    
+       
     .main-content {
         padding: 1.5rem 1.5rem 2.5rem 1.5rem;
-        background-image: none;
     }
-    
-    nav {
-        grid-template-columns: auto auto;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0;
-        margin-bottom: 2rem;
-        margin-right: 0; 
+
+    .bg-woman {
+        display: none;
     }
-    
+
     .nav-menu {
         flex-wrap: nowrap;
         gap: 0.5rem;
@@ -199,7 +204,6 @@
         margin-top: 0;
     }
     
-    // Los estilos de sign-links en móvil ahora se manejan en navigation.scss
     .feature-grid {
         gap: 0.5rem;
         padding: 1rem 0;
@@ -211,7 +215,6 @@
             }
         }
     }
-    
 
     .icon-circle {
         width: 52px;
@@ -225,24 +228,14 @@
     .logo {
         font-size: 32px;
     }
-
-    .testimonial-card {
-        p, .testimonial-author {
-            font-size: 16px;
-        }
-    }
 }
 
 // Rango 993-1400px
 @media (min-width: 993px) and (max-width: 1400px) {
-    .bg-beige, .bg-green, .bg-white-bottom, .flower-svg-bg {
+    .bg-beige, .bg-green {
         display: block;
     }
-    
-    .bg-green {
-        width: 35%;
-    }
-    
+       
     .flower-svg-bg {
         left: 1150px;
         width: 400px;
@@ -252,7 +245,7 @@
 
 // Mayores a 1400px
 @media (min-width: 1401px) {
-    .bg-beige, .bg-green, .bg-white-bottom, .flower-svg-bg {
+    .bg-beige, .bg-green {
         display: block;
     }
 }

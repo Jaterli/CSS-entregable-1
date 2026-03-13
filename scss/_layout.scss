@@ -5,8 +5,7 @@
     height: 1080px;
     position: relative;
     margin: 0 auto;
-    overflow: hidden;
-    background-color: $background-beige;
+    overflow: visible;
     box-shadow: $shadow-soft;
 }
 
@@ -16,57 +15,77 @@
 }
 
 // Capas de fondo
-.bg-beige {
+.bg-layers {
+    display: grid;
+    grid-template-columns: auto 570px;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 75%;
-    height: 100%;
-    background-color: $background-beige;
+    width: 100%;
+    height: 755px;
     z-index: 1;
+}
+.bg-beige {
+    position: relative;
+    background-color: $background-beige;
 }
 
 .bg-green {
+    position: relative;
+    background-color: $primary-green;
+    overflow: hidden; /* Opcional, por si la imagen se desborda */
+}
+
+.bg-green::before {
+    content: "";
     position: absolute;
     top: 0;
-    right: 0;
-    width: 635px;
-    height: 100%;
-    background-color: $primary-green;
-    z-index: 1;
-}
-
-.bg-white-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    right: 95px;
+    background-position-y: 30%;
     width: 100%;
-    height: 30%;
-    background-color: $white;
-    z-index: 2;
+    height: 100%;
+    background-image: url("../assets/flor-spa.svg");
+    background-size: 85%;    
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    pointer-events: none;
 }
 
-.flower-svg-bg {
+.bg-woman {
     position: absolute;
-    left: 1350px;
-    transform: translateX(-25%) translateY(23%);
-    width: 472.5px;
-    height: 436.59px;
-    opacity: 0.05;
-    pointer-events: none;
-    z-index: 5;
+    z-index: 9;
+    background-image: url("../assets/30f53723d6cf4245c6d4f518fd6fa57f431e1561.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 930px;
+    width: 75%;
+    right: 0;
+    background-position: 50px 25%;
 }
 
 .main-content {
     position: relative;
     z-index: 10;
     width: 100%;
-    height: 100%;
-    padding: 1.8rem 10rem 2rem 10rem;
-    background-image: url('../assets/30f53723d6cf4245c6d4f518fd6fa57f431e1561.png');
-    background-size: 85%;
-    background-position: 130% 60%;
-    background-repeat: no-repeat;
+    padding: 5rem 8% 2rem 8%;
     display: flex;
     flex-direction: column;
+}
+
+.additional-content {
+    background-color: transparent;
+    border-top: 1px solid #A9D6CB; 
+    border-bottom: 1px solid #A9D6CB; 
+    padding: 2.5rem 2rem;
+}
+
+.additional-content h2 {
+    color: #264065;  
+}
+
+.additional-content h2::after {
+    background-color: #264065; 
+    width: 60px;
+}
+
+.additional-content p {
+    color: #070D15; 
 }
