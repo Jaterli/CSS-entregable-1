@@ -9,7 +9,7 @@ header.site-header {
     z-index: 500;
 
     &.sticky {
-        position: sticky;
+        position: fixed;
         top: 0;
         left: 0;
         right: 0;
@@ -313,10 +313,3 @@ nav {
     }
 }
 
-// Ajustes para pantallas muy pequeñas
-@include respond-to(sm) {
-    .nav-menu {
-        width: 100%;
-        max-width: none;
-    }
-}

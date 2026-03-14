@@ -9,11 +9,6 @@
     box-shadow: $shadow-soft;
 }
 
-// Añade un padding-top condicional para cuando el menú es sticky
-.page-wrapper.has-sticky-nav {
-    padding-top: 0; // Se ajustará dinámicamente con JS
-}
-
 // Capas de fondo
 .bg-layers {
     display: grid;

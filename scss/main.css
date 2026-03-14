@@ -25,10 +25,6 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
 }
 
-.page-wrapper.has-sticky-nav {
-  padding-top: 0;
-}
-
 .bg-layers {
   display: grid;
   grid-template-columns: auto 570px;
@@ -112,7 +108,7 @@ header.site-header {
   z-index: 500;
 }
 header.site-header.sticky {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -374,12 +370,6 @@ nav .menu-toggle.open span:nth-child(3) {
     display: none;
   }
 }
-@media (max-width: 576px) {
-  .nav-menu {
-    width: 100%;
-    max-width: none;
-  }
-}
 .hero {
   display: grid;
   grid-template-columns: 1.2fr 0.7fr;
@@ -613,6 +603,10 @@ nav .menu-toggle.open span:nth-child(3) {
 @media (max-width: 992px) {
   .bg-layers {
     display: none;
+  }
+  header.site-header {
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
   }
   .main-content {
     padding: 1.5rem 1.5rem 2.5rem 1.5rem;
