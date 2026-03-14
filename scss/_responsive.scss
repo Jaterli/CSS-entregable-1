@@ -18,7 +18,7 @@
 @include respond-to(xl) {
     
     .main-content {
-        padding: 1.5rem 3rem 3rem 3rem;
+        padding: 8rem 3rem 3rem 3rem;
     }
 
     nav {
@@ -37,8 +37,8 @@
     }
     
     header.site-header {
-        margin-right: 3rem;
-        margin-left: 3rem;
+        padding-right: 3rem;
+        padding-left: 3rem;
     }
 
     .nav-menu a {
@@ -88,7 +88,6 @@
         }
     }    
 
-
 }
 
 // Breakpoint 992px
@@ -98,12 +97,12 @@
     }
 
     header.site-header {
-        margin-right: 1.5rem;
-        margin-left: 1.5rem;        
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;        
     }
 
     .main-content {
-        padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+        padding: 7rem 1.5rem 2.5rem 1.5rem;
     }
 
     .bg-woman {

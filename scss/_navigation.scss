@@ -3,40 +3,40 @@
 @use 'mixins' as *;
 
 header.site-header {
-    margin: 1rem 8%;
-    padding: 0.5rem 0rem;
-    position: relative;    
+    position: fixed;
+    max-width: 1920px;
+    width: 100%;
+    top: 0;
     z-index: 500;
+    padding: 1.5rem 8%;
 
     &.sticky {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
         background-color: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        padding: 0.5rem 8%;
-        margin: 0;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         animation: slideDown 0.3s ease-out;
         z-index: 1000;
-        
-        // Ajustes responsive para el menú sticky
-        @include respond-to(xl) {
-            padding: 0.5rem 3rem;
-            .logo {
-                font-size: 28px;
-            }
-            .nav-menu a {
-                font-size: 16px;
-            }
+
+    }
+   
+    // Ajustes responsive para el menú sticky
+    @include respond-to(xl) {
+
+        .logo {
+            font-size: 28px;
         }
-        
-        @include respond-to(lg) {
-            padding: 0.5rem 1.5rem;
+        .nav-menu a {
+            font-size: 16px;
         }
     }
+    
+    @include respond-to(lg) {
+        padding: 0.5rem 1.5rem;
+    }
+    
 }
 
 // Animación para el menú sticky

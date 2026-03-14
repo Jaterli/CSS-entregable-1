@@ -19,7 +19,7 @@
         <div class="bg-woman"></div> 
 
         <!-- Header con navegación principal  -->
-        <header class="site-header" id="siteHeader">
+        <header class="site-header sticky" id="siteHeader">
             <nav aria-label="Navegación principal">
                 <div class="logo" aria-label="GlowQueen logo">Glow<span>Queen</span></div>
 
@@ -144,31 +144,16 @@
             const siteHeader = document.getElementById('siteHeader');
             const pageWrapper = document.querySelector('.page-wrapper');
             
-            let headerHeight = siteHeader.offsetHeight;
-
-            // Función para actualizar la altura del header
-            function updateHeaderHeight() {
-                headerHeight = siteHeader.offsetHeight;
-                if (siteHeader.classList.contains('sticky')) {
-                    pageWrapper.style.paddingTop = headerHeight + 'px';
-                } else {
-                    pageWrapper.style.paddingTop = '0';
-                }
-            }
 
             // Función para manejar el scroll
             function handleScroll() {
-                if (window.scrollY > 100) {
+                if (window.scrollY > 50) {
                     if (!siteHeader.classList.contains('sticky')) {
                         siteHeader.classList.add('sticky');
-                        pageWrapper.classList.add('has-sticky-nav');
-                        updateHeaderHeight();
                     }
                 } else {
                     if (siteHeader.classList.contains('sticky')) {
                         siteHeader.classList.remove('sticky');
-                        pageWrapper.classList.remove('has-sticky-nav');
-                        pageWrapper.style.paddingTop = '0';
                     }
                 }
             }
@@ -176,9 +161,6 @@
             // Escuchar el evento scroll
             window.addEventListener('scroll', handleScroll);
             
-            // Actualizar altura cuando la ventana se redimensiona
-            window.addEventListener('resize', updateHeaderHeight);
-
             // Toggle menú hamburguesa
             menuToggle.addEventListener('click', function() {
                 const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
@@ -229,8 +211,6 @@
                 }
             });
 
-            // Inicializar la altura
-            updateHeaderHeight();
         });
     </script>
 </body>
