@@ -673,6 +673,9 @@ nav .menu-toggle.open span:nth-child(3) {
   }
 }
 @media (max-width: 576px) {
+  header.site-header .logo {
+    font-size: 26px;
+  }
   header.site-header.sticky .logo {
     font-size: 22px;
   }
@@ -712,9 +715,6 @@ nav .menu-toggle.open span:nth-child(3) {
   }
   .feature-number {
     font-size: 24px;
-  }
-  .logo {
-    font-size: 32px;
   }
 }
 @media (min-width: 993px) and (max-width: 1400px) {
