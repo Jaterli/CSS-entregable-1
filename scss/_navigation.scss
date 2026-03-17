@@ -2,58 +2,12 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-header.site-header {
-    position: fixed;
-    max-width: 1920px;
-    width: 100%;
-    top: 0;
-    z-index: 500;
-    padding: 1.5rem 8%;
-
-    &.sticky {
-        background-color: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        animation: slideDown 0.3s ease-out;
-        z-index: 1000;
-
-    }
-   
-    // Ajustes responsive para el menú sticky
-    @include respond-to(xl) {
-
-        .logo {
-            font-size: 28px;
-        }
-        .nav-menu a {
-            font-size: 16px;
-        }
-    }
-    
-    @include respond-to(lg) {
-        padding: 0.5rem 1.5rem;
-    }
-    
-}
-
-// Animación para el menú sticky
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-    }
-    to {
-        transform: translateY(0);
-    }
-}
-
 nav {
     display: grid;
     align-items: center;
-    position: relative; // Para posicionarlo en el móvil
-    grid-template-columns: 25% auto 40%;
+    position: relative;
+    grid-template-columns: auto 50%;
+    width: 75%;
     
     ul {
         list-style: none;
@@ -238,77 +192,4 @@ nav {
     }
 }
 
-// Estilos Responsive para el menú hamburguesa
-@include respond-to(xl) {
-    nav {       
-        .menu-toggle {
-            display: flex; // Mostrar hamburguesa
-        }
-    }
-
-    .nav-menu {
-        // Ocultar menú y acciones por defecto en móvil
-        position: fixed;
-        top: 64px;
-        display: none; 
-        width: 70%;
-        max-width: 300px;
-        height: 100vh;
-        background-color: $white;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding: 2rem 1.5rem 2rem;
-        gap: 1.5rem;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-        transition: right 0.3s ease;
-        z-index: 100;
-
-        &.open { // Mostrar menú
-            right: 0;
-            display: flex;
-        }
-
-        a {
-            font-size: 18px;
-            width: 100%;
-            padding: 0.5rem 0;
-        }
-
-        .more-wrapper {
-            width: 100%;
-            display: block;
-            
-            .dropdown-menu {
-                position: static;
-                box-shadow: none;
-                padding-left: 1rem;
-                margin-top: 0;
-                background-color: transparent;
-                
-                a {
-                    padding: 0.5rem 0;
-                }
-            }
-        }
-    }
-
-    // Integrar los enlaces de Sign In/Up en el menú móvil
-    .nav-menu .mobile-sign-links {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid $text-gray;
-    }
-
-    // Ocultar los originales del header en móvil
-    .nav-actions {
-        .sign-links,
-        .sign-divider {
-            display: none;
-        }
-    }
-}
 

@@ -17,8 +17,15 @@
 // Breakpoint 1400px
 @include respond-to(xl) {
     
-    .main-content {
-        padding: 8rem 3rem 3rem 3rem;
+    header.site-header {
+        &.sticky {
+            .logo {
+                font-size: 28px;
+            }
+            .nav-menu a {
+                font-size: 16px;
+            }
+        }
     }
 
     nav {
@@ -26,7 +33,78 @@
         align-items: center;
         justify-content: space-between;
         gap: 0;
+        width: auto;
+
+        .menu-toggle {
+            display: flex; // Mostrar hamburguesa
+        }        
     }
+
+    .nav-menu {
+        // Ocultar menú y acciones por defecto en móvil
+        position: fixed;
+        top: 64px;
+        display: none; 
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: $white;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 2rem 1.5rem 2rem;
+        gap: 1.5rem;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        z-index: 100;
+
+        &.open { // Mostrar menú
+            right: 0;
+            display: flex;
+        }
+
+        a {
+            font-size: 18px;
+            width: 100%;
+            padding: 0.5rem 0;
+        }
+
+        .more-wrapper {
+            width: 100%;
+            display: block;
+            
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                padding-left: 1rem;
+                margin-top: 0;
+                background-color: transparent;
+                
+                a {
+                    padding: 0.5rem 0;
+                }
+            }
+        }
+    }
+
+    // Integrar los enlaces de Sign In/Up en el menú móvil
+    .nav-menu .mobile-sign-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid $text-gray;
+    }
+
+    // Ocultar los originales del header en móvil
+    .nav-actions {
+        .sign-links,
+        .sign-divider {
+            display: none;
+        }
+    }
+
 
     .logo {
         font-size: 34px;
@@ -50,6 +128,10 @@
     
     .nav-actions {
         gap: 1rem;
+    }
+
+    .main-content {
+        padding: 8rem 3rem 3rem 3rem;
     }
 
     .sign-links a {
@@ -188,7 +270,15 @@
 
 // Breakpoint 576px
 @include respond-to(sm) {
-    
+   
+    header.site-header {
+        &.sticky {
+            .logo {
+                font-size: 22px;
+            }
+        }
+    }    
+
     .main-content {
         padding-top: 6rem;
     }
